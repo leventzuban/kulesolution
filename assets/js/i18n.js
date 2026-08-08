@@ -29,6 +29,8 @@ window.KULE_I18N = {
     "common.viewProjects": "Shiko projektet",
     "common.home": "Ballina",
     "common.allRights": "Të gjitha të drejtat e rezervuara.",
+    "wa.label": "Na shkruani në WhatsApp",
+    "wa.msg": "Përshëndetje! Dëshiroj informacion për zgjidhjet e automatizimit të Kule Solution.",
 
     /* --- footer --- */
     "footer.about": "Kule Solution SH.P.K. projekton dhe integron sisteme automatizimi për ndërtesa dhe industri që nga viti 2017 — nga shtëpitë smart deri te linjat e prodhimit.",
@@ -432,6 +434,8 @@ window.KULE_I18N = {
     "common.viewProjects": "View projects",
     "common.home": "Home",
     "common.allRights": "All rights reserved.",
+    "wa.label": "Message us on WhatsApp",
+    "wa.msg": "Hello! I would like information about Kule Solution's automation services.",
 
     "footer.about": "Kule Solution SH.P.K. has been designing and integrating automation systems for buildings and industry since 2017 — from smart homes to production lines.",
     "footer.nav": "Navigation",
@@ -828,6 +832,8 @@ window.KULE_I18N = {
     "common.viewProjects": "Projeleri görün",
     "common.home": "Ana Sayfa",
     "common.allRights": "Tüm hakları saklıdır.",
+    "wa.label": "WhatsApp'tan yazın",
+    "wa.msg": "Merhaba! Kule Solution'ın otomasyon çözümleri hakkında bilgi almak istiyorum.",
 
     "footer.about": "Kule Solution SH.P.K. 2017'den bu yana binalar ve sanayi için otomasyon sistemleri tasarlıyor ve entegre ediyor — akıllı evlerden üretim hatlarına kadar.",
     "footer.nav": "Menü",

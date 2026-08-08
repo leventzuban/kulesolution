@@ -274,6 +274,25 @@
     });
   }
 
+  /* ============================ whatsapp ============================ */
+
+  var WA_NUMBER = "38349615061"; // +383 49 61 50 61, digits only — wa.me format
+
+  function initWhatsApp() {
+    var links = document.querySelectorAll("[data-wa]");
+    if (!links.length) return;
+
+    function sync() {
+      var lang = document.documentElement.getAttribute("lang") || DEFAULT_LANG;
+      var msg = t(lang, "wa.msg");
+      var href = "https://wa.me/" + WA_NUMBER + (msg ? "?text=" + encodeURIComponent(msg) : "");
+      links.forEach(function (a) { a.setAttribute("href", href); });
+    }
+
+    sync();
+    document.addEventListener("kule:langchange", sync);
+  }
+
   /* ============================== misc ============================== */
 
   function initYear() {
@@ -290,6 +309,7 @@
     initNav();
     initHeader();
     initForm();
+    initWhatsApp();
     initYear();
   }
 

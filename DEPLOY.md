@@ -29,7 +29,36 @@ Website/
 
 ---
 
-## 2. GoDaddy'ye yükleme (cPanel — en yaygın yol)
+## 2A. GitHub Pages (şu an kullanılan yöntem)
+
+Site `github.com/leventzuban/kulesolution` reposundan yayınlanıyor ve
+`kulesolution.com` domainine bağlı. DNS doğru kurulmuş:
+
+| Kayıt | Değer |
+|---|---|
+| A (`@`) | 185.199.108.153 / .109.153 / .110.153 / .111.153 |
+| CNAME (`www`) | `leventzuban.github.io` |
+| `CNAME` dosyası (repo içinde) | `kulesolution.com` |
+
+**Güncelleme yapmak:** değişen dosyaları repoya yükle (GitHub web arayüzünden
+sürükle-bırak ya da `git push`). GitHub 1–2 dakika içinde otomatik yayınlar.
+
+**HTTPS:** GitHub sertifikayı kendisi üretir; özel domain bağlandıktan sonra
+bu **birkaç dakika ile 24 saat** arasında sürer. Sertifika hazır olunca
+Settings → Pages → **Enforce HTTPS** kutusunu işaretle. O kutu tıklanabilir
+hale gelmediyse sertifika henüz çıkmamıştır — beklemek dışında yapılacak bir
+şey yok.
+
+**Not:** GitHub Pages Apache değil, dolayısıyla `.htaccess` dosyası burada
+**hiçbir işe yaramaz**. Sildirmene gerek yok; ileride cPanel'e taşınırsa
+gerekli olacak. https ve www yönlendirmesini GitHub kendisi yapar.
+
+`.nojekyll` dosyası, GitHub'ın siteyi Jekyll ile işlemeye çalışmasını
+engeller — statik site için doğru olan budur.
+
+---
+
+## 2B. GoDaddy cPanel'e yükleme (alternatif)
 
 1. GoDaddy hesabına gir → **My Products** → hosting paketinin yanındaki **Manage**.
 2. **cPanel Admin** → **File Manager**.
@@ -146,6 +175,8 @@ Mesajların doğrudan `sales@kulesolution.com` kutusuna düşmesi için:
 | Telefon / e-posta / adres | Altı `.html` dosyasında ara-değiştir + `i18n.js` |
 | Yeni proje eklemek | `projects.html` içinde bir `<article class="project">` bloğunu kopyala |
 | Yeni fotoğraf | `assets/img/projects/` içine koy, genişliği en fazla 1600px olsun |
+| WhatsApp numarası | `assets/js/main.js` → `WA_NUMBER` **ve** 7 HTML dosyasındaki `wa.me/...` bağlantısı |
+| WhatsApp hazır mesajı | `assets/js/i18n.js` → `wa.msg` (üç dilde) |
 
 Değişiklikten sonra dosyayı File Manager'dan yükle ve tarayıcıda **Ctrl+F5** yap.
 

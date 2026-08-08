@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.kulesolution.com/sitemap.xml
+Sitemap: https://kulesolution.com/sitemap.xml

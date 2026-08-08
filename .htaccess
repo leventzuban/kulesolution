@@ -1,0 +1,65 @@
+# =============================================================================
+# Kule Solution — Apache configuration (GoDaddy cPanel / Linux hosting)
+# Upload this file into public_html together with the site.
+# If your host is Windows/IIS instead, delete this file — it does nothing there.
+# =============================================================================
+
+# ----- Default document --------------------------------------------------
+DirectoryIndex index.html
+
+# ----- Force HTTPS and the www host --------------------------------------
+# Turn these on AFTER the SSL certificate is active in cPanel, otherwise the
+# site can end up in a redirect loop while the certificate is still issuing.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # http -> https
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # kulesolution.com -> www.kulesolution.com
+  RewriteCond %{HTTP_HOST} ^kulesolution\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.kulesolution.com/$1 [R=301,L]
+</IfModule>
+
+# ----- Custom error page --------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ----- Compression --------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml font/ttf application/x-font-ttf
+</IfModule>
+
+# ----- Browser caching ----------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 7 days"
+  ExpiresByType application/javascript    "access plus 7 days"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType font/ttf                  "access plus 1 year"
+  ExpiresByType application/x-font-ttf    "access plus 1 year"
+</IfModule>
+
+# ----- Correct MIME types -------------------------------------------------
+<IfModule mod_mime.c>
+  AddType font/ttf                  .ttf
+  AddType image/svg+xml             .svg
+  AddCharset UTF-8                  .html .css .js .xml .txt
+</IfModule>
+
+# ----- Basic security headers ---------------------------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ----- Do not list directory contents -------------------------------------
+Options -Indexes
