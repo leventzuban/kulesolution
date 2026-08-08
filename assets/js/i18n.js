@@ -29,6 +29,10 @@ window.KULE_I18N = {
     "common.viewProjects": "Shiko projektet",
     "common.home": "Ballina",
     "common.allRights": "Të gjitha të drejtat e rezervuara.",
+    /* Brand slogan — deliberately left in English in all three languages.
+       A slogan is a brand mark, not body copy; translating it would create
+       three different slogans. Ask the client before localising it. */
+    "brand.slogan": "If you can think of it, we will do it.",
     "wa.label": "Na shkruani në WhatsApp",
     "wa.msg": "Përshëndetje! Dëshiroj informacion për zgjidhjet e automatizimit të Kule Solution.",
 
@@ -434,6 +438,7 @@ window.KULE_I18N = {
     "common.viewProjects": "View projects",
     "common.home": "Home",
     "common.allRights": "All rights reserved.",
+    "brand.slogan": "If you can think of it, we will do it.",
     "wa.label": "Message us on WhatsApp",
     "wa.msg": "Hello! I would like information about Kule Solution's automation services.",
 
@@ -832,6 +837,7 @@ window.KULE_I18N = {
     "common.viewProjects": "Projeleri görün",
     "common.home": "Ana Sayfa",
     "common.allRights": "Tüm hakları saklıdır.",
+    "brand.slogan": "If you can think of it, we will do it.",
     "wa.label": "WhatsApp'tan yazın",
     "wa.msg": "Merhaba! Kule Solution'ın otomasyon çözümleri hakkında bilgi almak istiyorum.",
 

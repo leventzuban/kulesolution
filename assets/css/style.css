@@ -792,3 +792,52 @@ p:last-child { margin-bottom: 0; }
 
 /* Keep it out of print output. */
 @media print { .wa { display: none !important; } }
+
+/* ==========================================================================
+   Brand slogan
+   ========================================================================== */
+
+/* Standalone band — home and about pages */
+.slogan {
+  position: relative; overflow: hidden;
+  background: var(--bg-soft);
+  padding: clamp(66px, 9vw, 116px) 0;
+  text-align: center;
+}
+.slogan::before {
+  content: ""; position: absolute; pointer-events: none;
+  left: 50%; top: 50%; width: 118%; aspect-ratio: 100 / 34;
+  transform: translate(-50%, -46%);
+  background: var(--arc-navy) center / contain no-repeat;
+  opacity: .045;
+}
+.slogan .wrap { position: relative; z-index: 1; }
+.slogan .wrap::before {
+  content: ""; display: block;
+  width: 64px; height: 22px; margin: 0 auto 30px;
+  background: var(--arc-yellow) center / contain no-repeat;
+}
+.slogan__text {
+  margin: 0 auto; max-width: 20ch;
+  font-size: clamp(1.65rem, 4.4vw, 3.05rem);
+  font-weight: 800; line-height: 1.24; letter-spacing: -.025em;
+  color: var(--ink); text-wrap: balance;
+}
+
+/* Dark variant, for pages whose neighbouring sections are already light */
+.slogan--navy { background: var(--navy-900); }
+.slogan--navy .slogan__text { color: #fff; }
+.slogan--navy::before { background-image: var(--arc-yellow); opacity: .07; }
+
+/* Footer signature line under the logo */
+.footer__slogan {
+  margin: 16px 0 0;
+  color: var(--yellow);
+  font-weight: 700; font-size: .95rem;
+  letter-spacing: .005em; line-height: 1.5;
+}
+
+@media (max-width: 620px) {
+  .slogan__text { max-width: 100%; }
+  .slogan .wrap::before { width: 54px; height: 19px; margin-bottom: 22px; }
+}
